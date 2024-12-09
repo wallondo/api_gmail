@@ -23,8 +23,8 @@ server.get("/",async(req,resp)=>{
         await sender.sendMail({
             from:"wallondolaila@gmail.com",
             to:"0l0a0i0l0a0@gmail.com",
-            subject:"Novidades de Produtos da Wallondo",
-            html:"<h2>Olá Lalia</h2> <br/> confira os nossos produtos atualizados <a href='www.facebook.com'>facebook</a>",
+            subject:"Teste de hospedagem na vercel",
+           // html:"<h2>Olá Lalia</h2> <br/> confira os nossos produtos atualizados <a href='www.facebook.com'>facebook</a>",
             text:"ola senhor Laila"
         }) 
         //teste de acrescimo
