@@ -25,22 +25,24 @@ server.get("/",async(req,resp)=>{
 })
 server.post("/sms_gmail",async(req,resp)=>{
     server.use(cors())
-
+        let tema = req.body.tema;
+        let cliente = req.body.cliente;
+        let conteudo = req.body.conteudo;
         await sender.sendMail({
             // de momento tá fixo , depois vai ser dinamico , se aceitarem , mas eu vou faze-lo 
             //só pra teste e agregação de conhecimento
             from:"wallondolaila@gmail.com",
-            to:"0l0a0i0l0a0@gmail.com",
-            subject:"Teste de hospedagem na vercel 02",
-           // html:"<h2>Olá Lalia</h2> <br/> confira os nossos produtos atualizados <a href='www.facebook.com'>facebook</a>",
-            text:"ola senhor Laila"
+            to:cliente,
+            subject:tema,
+            html:conteudo,
+            text:conteudo
         }) 
         //teste de acrescimo
     .then((response)=>{
         console.log("tudo fine aqui")
         console.log(response)
 
-    return  resp.status(200).send("tudo feito")
+        return  resp.status(201).send({sms:"tudo feito",gmail:tema+"/"+cliente+"/"+conteudo})
     })
     .catch((err)=>{
         console.log(err)
