@@ -16,14 +16,19 @@ const sender = nodemail.createTransport({
 const server = express();
 server.use(cors());
 server.use(express.json())
-
 server.get("/",async(req,resp)=>{
+    console.log("rodou o / na normalidade")
+    return  resp.status(200).send("tudo feito")
+})
+server.post("/sms_gmail",async(req,resp)=>{
     server.use(cors())
 
         await sender.sendMail({
+            // de momento tá fixo , depois vai ser dinamico , se aceitarem , mas eu vou faze-lo 
+            //só pra teste e agregação de conhecimento
             from:"wallondolaila@gmail.com",
             to:"0l0a0i0l0a0@gmail.com",
-            subject:"Teste de hospedagem na vercel",
+            subject:"Teste de hospedagem na vercel 02",
            // html:"<h2>Olá Lalia</h2> <br/> confira os nossos produtos atualizados <a href='www.facebook.com'>facebook</a>",
             text:"ola senhor Laila"
         }) 
