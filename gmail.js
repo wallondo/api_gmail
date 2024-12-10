@@ -16,9 +16,12 @@ const sender = nodemail.createTransport({
 const server = express();
 server.use(cors());
 server.use(express.json())
+
 server.get("/",async(req,resp)=>{
+    server.use(cors());
     console.log("rodou o / na normalidade")
-    return  resp.status(200).send("tudo feito")
+
+    return  resp.status(200).send("tudo feito na entrada")
 })
 server.post("/sms_gmail",async(req,resp)=>{
     server.use(cors())
