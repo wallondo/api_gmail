@@ -27,14 +27,16 @@ server.post("/sms_gmail",async(req,resp)=>{
     server.use(cors())
         let tema = req.body.tema;
         let cliente = req.body.cliente;
+        let email = req.body.email;
         let conteudo = req.body.conteudo;
+        console.log(cliente)
         await sender.sendMail({
             // de momento tá fixo , depois vai ser dinamico , se aceitarem , mas eu vou faze-lo 
             //só pra teste e agregação de conhecimento
             from:"wallondolaila@gmail.com",
-            to:cliente,
+            to:email,
             subject:tema,
-            html:conteudo,
+            html:"<h4>"+conteudo+"</h4>", 
             text:conteudo
         }) 
         //teste de acrescimo
