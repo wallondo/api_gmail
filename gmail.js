@@ -36,7 +36,7 @@ server.post("/sms_gmail",async(req,resp)=>{
             from:"wallondolaila@gmail.com",
             to:email,
             subject:tema,
-            html:"<h4>"+conteudo+"</h4>", 
+            html:"<h4>"+conteudo+"</h4>"+"</br>"+`<a href=${cliente}> Esplorar </a>`, 
             text:conteudo
         }) 
         //teste de acrescimo
