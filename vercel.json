@@ -11,5 +11,10 @@
             "src":"/(.*)",
             "dest":"gmail.js"
         }
-    ]
+    ],
+    "functions": {
+        "gmail.js": {
+          "maxDuration": 250 
+        }
+      }
 }
