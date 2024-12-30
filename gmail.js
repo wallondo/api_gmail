@@ -67,7 +67,7 @@ server.post("/sms_gmail/:option",async(req,resp)=>{
             console.log(err)
             console.log("deu erro aqui")
 
-            return  resp.status(400).send("err o de envio")
+            return  resp.status(400).send({sms:"erro ao enviar pra um o de envio",erro:err})
             })
         }
     }
